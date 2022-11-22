@@ -25,6 +25,20 @@
     </div>
   </div>
 
+  <%# Horizontal line to split the window %>
+  <hr>
+
+  <%# # Integrating iteration to show sample of exercises%>
+  <div class="row">
+    <% @exercises.limit(9).each do |exercise| %>
+      <div class="col-4">
+        <h2> <%= exercise.name %></h2>
+        <p> <%= exercise.description %> <p>
+        <p> <strong> <%=  exercise.price_per_day %> $</strong> </p>
+      </div>
+    <% end %>
+  </div>
+
   <%= link_to "Exercises", exercises_path %>
 
 </div>
