@@ -1,6 +1,13 @@
-<h1> All exercises </h1>
-
-<ul> <% @exercises.each do |exercise| %>
-  <li> <%= exercise.name %> </li>
+<div class="row mx-3 p-5">
+<%= link_to "⟨ Accueil", root_path, class:"text-decoration-none" %>
+<h1 class="my-2">Tous les exercises</h1>
+  <% @exercises.each do |exercise| %>
+    <div class="col-sm-4">
+      <div class="shadow-sm card p-3 mb-2">
+        <h3> <%= exercise.name %></h3>
+        <p> <%= exercise.description %> <p>
+        <%= link_to "Réserver pour #{exercise.price_per_day}€", exercise_path(exercise), class:"btn btn-primary" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

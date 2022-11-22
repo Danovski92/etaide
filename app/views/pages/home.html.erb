@@ -1,44 +1,30 @@
-<div class="container m-3">
-  <div class="row">
-  <h1>Pages#home</h1>
-    <p>Select an exercise</p>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-      <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-
-  <div class="row">
-    <div class="col-4">
-      <h2>Title</h2>
-      <p>some text</p>
-    </div>
-        <div class="col-4">
-      <h2>Title</h2>
-      <p>some text</p>
-    </div>
-        <div class="col-4">
-      <h2>Title</h2>
-      <p>some text</p>
+<div class="container">
+  <div class="row bg-white m-4">
+      <div class="jumbotron jumbotron-fluid p-5">
+          <h1 class="display-4">🛟 eTAide</h1>
+          <p class="lead">Sélectionnez un exercise, réservez votre TA !</p>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+      </div>
     </div>
   </div>
-
-  <%# Horizontal line to split the window %>
-  <hr>
-
   <%# # Integrating iteration to show sample of exercises%>
-  <div class="row">
+  <div class="row mx-4 p-5">
+    <h2>Derniers exercises</h2>
+    <%= link_to "Voir tous les exercises ⟩", exercises_path, class:"my-2 text-decoration-none" %>
     <% @exercises.limit(9).each do |exercise| %>
-      <div class="col-4">
-        <h2> <%= exercise.name %></h2>
-        <p> <%= exercise.description %> <p>
-        <p> <strong> <%=  exercise.price_per_day %> $</strong> </p>
+      <div class="col-sm-4">
+        <div class="shadow-sm card p-3 mb-2">
+          <h3> <%= exercise.name %></h3>
+          <p> <%= exercise.description %> <p>
+          <%= link_to "Réserver pour #{exercise.price_per_day.round(0)}€", exercise_path(exercise), class:"btn btn-primary" %>
+        </div>
       </div>
     <% end %>
   </div>
-
-  <%= link_to "Exercises", exercises_path %>
 
 </div>
