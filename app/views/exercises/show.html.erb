@@ -20,6 +20,7 @@
       <img src="https://avatars.githubusercontent.com/u/54894352?v=4" />
       <div class="card-product-infos">
         <h2><%= @exercise.user.first_name %></h2>
+        <h2><%= @exercise.user_id %></h2>
         <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
     </div>
@@ -29,6 +30,7 @@
       <div class="shadow-sm card">
         <div class="card-body">
           <h5 class="card-title">Réserver cet exercice</h5>
+          <%= link_to "New Booking", new_exercise_booking_path(@exercise),  class: "Button" %>
           <p class="card-text">lorem ipsum</p>
         </div>
       </div>

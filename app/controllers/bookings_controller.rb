@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_exercise, only: %i[new create]
   before_action :set_booking, only: [:show]
-  before_action :set_exercise
 
   def show
     @user = current_user
@@ -12,9 +12,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @booking = Booking.new(booking_params)
-    @exercise = @booking.exercise
+    @booking.user = current_user
+    @booking.exercise = @exercise
     if @booking.save
       redirect_to dashboard_path(@user)
     else
@@ -33,6 +33,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :exercise_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

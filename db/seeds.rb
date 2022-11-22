@@ -14,48 +14,61 @@
 
 puts "Creating new database................................."
 puts "......................................................"
-x=0
-10.times do
+x = 0
+user = User.new(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: "123456BA"
+)
+user.save!
+puts "....Adding ...#{x + 1}..Users to DB.............."
+
+50.times do
 
   x += 1
-  user = User.new(
-    first_name: "Philippe",
-    last_name: "Francisco",
-    email: "salut@gmail#{x}.com",
-    password: "123456BA"
-  )
-  user.save!
 
-  exercise = Exercise.new(
-    name: Faker::Space.galaxy,
-    description: Faker::BossaNova.song,
-    price_per_day: rand(0..500),
-    category: "A",
-    response_time: 50,
-    user_id: user.id
-  )
-  exercise.save!
+    user = User.new(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: "123456BA"
+    )
+    user.save!
+    puts "....Adding ...#{x}..Users to DB.............."
 
-  user = User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: Faker::Blockchain::Bitcoin.address
-  )
-  user.save!
+    5.times do
+    exercise = Exercise.new(
+      name: Faker::Space.galaxy,
+      description: Faker::BossaNova.song,
+      price_per_day: rand(0..500),
+      category: "A",
+      response_time: rand(30..120),
+      user_id: user.id
+    )
+    exercise.save!
+    puts "....Adding ...#{x * 5}..Exercises to DB.............."
 
-  p user.id
-  booking = Booking.new(
-    start_date: "01/01/2022",
-    end_date: "02/02/2022",
-    user_id: user.id,                                 #### ne peut pas etre = à l'user_id de l'exercise
-    exercise_id: exercise.id
-  )
-  booking.save!
-  puts "Added 1 Exercises, 1 Bookings and 1 User to database !"
+
+    day = rand(1..30).to_s
+    month = rand(1..12).to_s
+
+    5.times do
+      booking = Booking.new(
+        start_date: "#{day}/01/2022",
+        end_date: "#{day}/#{month}/2022",
+        user_id: user.id - 1,                                 #### ne peut pas etre = à l'user_id de l'exercise
+        exercise_id: exercise.id
+      )
+      booking.save!
+      puts "....Adding ...#{x * 5 * 5}..Bookings to DB.............."
+    end
+  end
 end
 
-puts "......................................................"
+
+
+
 
   # exo3 = Exercise.new(name: Faker::Space.galaxy, description: Faker::BossaNova.song, price_per_day: rand(0..500), category: "C", response_time: 20)
   # p exo3.user = user3

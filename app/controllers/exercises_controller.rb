@@ -1,5 +1,4 @@
 class ExercisesController < ApplicationController
-
   def index
     @exercises = Exercise.all
   end
@@ -16,7 +15,7 @@ class ExercisesController < ApplicationController
   def create
     @exercice = Exercise.new(exercise_params)
     @exercise.save
-    redirect_to dashboard_path #to be changed later?
+    redirect_to dashboard_path # to be changed later?
   end
 
   private
@@ -24,5 +23,4 @@ class ExercisesController < ApplicationController
   def exercise_params
     params.require(:exercise).permit(:name, :description, :price_per_day, :category, :response_time)
   end
-
 end
