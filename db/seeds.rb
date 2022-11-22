@@ -21,6 +21,8 @@ user5 = User.create!(first_name: "Bertrand", last_name: "Hestia", email: "test4@
 
 puts "..."
 
+50.times do
+
 exo1 = Exercise.new(name: "Deliveroo", description: "Exo MVC", price_per_day: 50, category: "A", response_time: 50)
 exo1.user = user1
 exo1.save
@@ -41,7 +43,6 @@ exo5 = Exercise.new(name: "UberEats", description: "Exo Manger", price_per_day: 
 exo5.user = user5
 exo5.save
 
-
 book1 = Booking.new(start_date: "01/01/2022", end_date: "02/02/2022", user_id: 1, exercise_id: 1)
 book1.save
 
@@ -58,3 +59,5 @@ book5 = Booking.new(start_date: "05/05/2022", end_date: "02/02/2022", user_id: 5
 book5.save
 
 puts "Added 5 Exercises, 5 Bookings and 5 User to database !"
+
+end
