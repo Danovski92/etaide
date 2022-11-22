@@ -1,0 +1,10 @@
+  <div class="row">
+    <% @exercises.limit(9).each do |exercise| %>
+      <div class="col-4">
+        <h2> <%= exercise.name %></h2>
+        <p> <%= exercise.description %> <p>
+        <p> <%= exercise.user_id %> <p>
+        <p> <strong> <%=  exercise.price_per_day %> $</strong> </p>
+      </div>
+    <% end %>
+  </div>

@@ -1,1 +1,37 @@
-<h1> Exercise details </h1>
+<div class="container m-3">
+  <%= link_to "Accueil", root_path %>
+
+  <div class="row mt-2 mb-3">
+    <h1> <%= @exercise.name %> </h1>
+      <div>
+        <div class="d-inline p-2 bg-white text-dark m-2">Category:  <%= @exercise.category %></div>
+        <div class="d-inline p-2 bg-white text-dark m-2">Price: <%= @exercise.price_per_day %></div>
+        <div class="d-inline p-2 bg-white text-dark m-2">Response time: <%= @exercise.response_time %></div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-8 mt-4">
+      <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum quidem possimus ad autem recusandae, nobis delectus rerum cupiditate adipisci rem eum dignissimos, vero nisi cumque soluta voluptates culpa aut minima!
+      Qui earum sapiente dolorum sequi corporis vel eaque architecto! Error in harum magnam dignissimos, quaerat quos accusamus! Nihil beatae modi, repudiandae dicta dolore rem aspernatur eius sit nostrum, dignissimos sapiente!
+      Odit animi libero dignissimos laudantium ad eaque similique dolorem in corrupti impedit non ullam, voluptatibus veniam inventore eius maiores ex! Pariatur voluptatum eligendi eos laborum laboriosam dicta libero, eaque nostrum. <%= @exercise.description %> </p>
+
+    <h3>Votre TA sera :</h3>
+    <div class="card-product">
+      <img src="https://avatars.githubusercontent.com/u/54894352?v=4" />
+      <div class="card-product-infos">
+        <h2><%= @exercise.user_id %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
+
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Réserver cet exercice</h5>
+          <p class="card-text">lorem ipsum</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
