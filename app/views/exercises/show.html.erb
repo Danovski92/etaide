@@ -1,8 +1,8 @@
 <div class="container m-3">
-  <%= link_to "Accueil", root_path %>
+  <%= link_to "⟨ Accueil", root_path, class:"text-decoration-none" %>
 
   <div class="row mt-2 mb-3">
-    <h1> <%= @exercise.name %> </h1>
+    <h1 class="py-2"> <%= @exercise.name %> </h1>
       <div>
         <div class="d-inline p-2 bg-white text-dark m-2">Category:  <%= @exercise.category %></div>
         <div class="d-inline p-2 bg-white text-dark m-2">Price: <%= @exercise.price_per_day %></div>
@@ -19,14 +19,14 @@
     <div class="card-product">
       <img src="https://avatars.githubusercontent.com/u/54894352?v=4" />
       <div class="card-product-infos">
-        <h2><%= @exercise.user_id %></h2>
+        <h2><%= @exercise.user.first_name %></h2>
         <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
     </div>
 
     </div>
     <div class="col-4">
-      <div class="card">
+      <div class="shadow-sm card">
         <div class="card-body">
           <h5 class="card-title">Réserver cet exercice</h5>
           <p class="card-text">lorem ipsum</p>

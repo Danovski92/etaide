@@ -1,10 +1,32 @@
+<%# # Integrating iteration to show exercises for this user%>
+<h1> Your exercises <strong><%=@user.first_name%></strong></h1>
   <div class="row">
-    <% @exercises.limit(9).each do |exercise| %>
+    <% @exercises.each do |exercise| %>
       <div class="col-4">
         <h2> <%= exercise.name %></h2>
         <p> <%= exercise.description %> <p>
         <p> <%= exercise.user_id %> <p>
         <p> <strong> <%=  exercise.price_per_day %> $</strong> </p>
+      </div>
+    <% end %>
+  </div>
+
+  <%# Horizontal line to split the window %>
+  <hr>
+  <h1> Your incoming bookings <strong><%=@user.first_name%></strong></h1>
+
+
+ <%# # Integrating iteration to show bookings for this user%>
+   <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-4">
+        <h2> <%= booking.exercise.name %></h2>
+        <p> <strong>Start date :</strong> <%= booking.start_date %> <p>
+        <p> <strong>End date :</strong> <%= booking.end_date %> <p>
+        <p> <strong>Your beloved TA is :</strong><%= booking.exercise.user.first_name %></p>
+        <p><%= booking.exercise.user.id %></p>
+        <p> <%= booking.user_id %> <p>
+        <p> <%#= booking.exercises.name %> <p>
       </div>
     <% end %>
   </div>
