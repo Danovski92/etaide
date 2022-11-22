@@ -6,7 +6,7 @@ class ExercisesController < ApplicationController
 
   def show
     @exercise = Exercise.find(params[:id])
-
+    @user = @exercise.user
   end
 
   def new
