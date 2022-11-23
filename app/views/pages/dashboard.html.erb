@@ -1,41 +1,54 @@
 <%# # Integrating iteration to show exercises for this user%>
-
-<div class="row mx-3 p-5">
-  <h1><strong><%=@user.first_name%> this is...</strong></h1>
-    <h1 class="my-2">...your offers :</h1>
-      <% @exercises.each do |exercise| %>
-        <div class="col-sm-4">
-        <%= link_to exercise  do %>
-          <div class="shadow-sm card p-3 mb-2">
-            <h2> <%= exercise.name %></h2>
-            <p> <%= exercise.description %> <p>
-            <p> <%= exercise.user_id %> <p>
-            <p> <strong> <%=  exercise.price_per_day %> $</strong> </p>
-          </div>
-          <% end %>
-        </div>
+  <div class="row mx-3 px-4 py-2">
+    <h1 class="my-2 text-center"><strong>
+      <% if Time.now.hour < 18 %>
+        <%= "Bonjour" %>
+      <% elsif Time.now.hour > 18 %>
+        <%= "Bonsoir" %>
       <% end %>
-    </div>
+      <%=@user.first_name%> 👋</strong>
+    </h1>
+    <p class="text-center">Bienvenue sur ton tableau de bord !</p>
+  </div>
+ <%# # Integrating iteration to show bookings for this user%>
+  <div class="row mx-3 px-4 py-2">
 
+    <h2>Tes réservations</h2>
+      <% if @bookings == [] %>
+        <%= "Tu n'as fait aucune réservation pour l'instant" %>
+      <% else %>
+        <% @bookings.each do |booking| %>
+          <div class="col-sm-4">
+            <div class="card shadow-sm p-3 mb-2">
+              <h5 class="card-title"><%= booking.exercise.name %></h5>
+              <p class="card-text"><strong>Ton TA adoré est :</strong> <%= booking.exercise.user.first_name %> (id: <%= booking.exercise.user.id %>)</p>
+              <p class="card-text"><strong>Date de début :</strong> <%= booking.start_date %> </p>
+              <p class="card-text"><strong>Date de fin :</strong> <%= booking.end_date %> </p>
+              <p class="card-text d-none"><strong>Ton id :</strong> <%= booking.user_id %> </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
   <%# Horizontal line to split the window %>
   <hr>
-  <h1><strong><%=@user.first_name%> this is...</strong></h1>
-
-
- <%# # Integrating iteration to show bookings for this user%>
-
-<div class="row mx-3 p-5">
-
-<h1 class="my-2">...all your upcoming bookings :</h1>
-  <% @bookings.each do |booking| %>
-    <div class="col-sm-4">
-      <div class="shadow-sm card p-3 mb-2">
-        <p> <strong>Start date :</strong> <%= booking.start_date %> <p>
-        <p> <strong>End date :</strong> <%= booking.end_date %> <p>
-        <p> <strong>Your beloved TA is :</strong> <%= booking.exercise.user.first_name %></p>
-        <p><strong>Your TA"s id :</strong> <%= booking.exercise.user.id %></p>
-        <p><strong>Your id :</strong> <%= booking.user_id %> <p>
-      </div>
-    </div>
-  <% end %>
-</div>
+  <%# # Integrating iteration to show exercises for this user%>
+  <div class="row mx-3 px-4 py-2">
+    <h2>Tes exercices</h2>
+      <% if @exercises == [] %>
+        <%= "Tu n'as créé aucun exercice pour l'instant" %>
+      <% else %>
+        <% @exercises.each do |exercise| %>
+          <div class="col-sm-4">
+          <%= link_to exercise  do %>
+            <div class="shadow-sm card p-3 mb-2">
+              <h2> <%= exercise.name %></h2>
+              <p> <%= exercise.description %> <p>
+              <p> <%= exercise.user_id %> <p>
+              <p> <strong> <%=  exercise.price_per_day.rounded(0) %> €</strong> </p>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
