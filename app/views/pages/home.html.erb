@@ -1,18 +1,22 @@
-<div class="container">
-  <div class="row bg-white m-4">
-      <div class="jumbotron jumbotron-fluid p-5">
-          <h1 class="display-4">🛟 eTAide</h1>
-          <p class="lead"> Sélectionnez un exercice, <strong> réservez votre TA ! </strong> </p>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+<div class="img-fluid py-5" style="height:500px; background-size: cover; background-image:url('https://images.pexels.com/photos/3861951/pexels-photo-3861951.jpeg')">
+  <div class="row">
+    <div class="jumbotron jumbotron-fluid p-5 bg-white col-6 rounded mx-auto d-block justify-content-center align-items-center">
+      <h1 class="display-4">🛟 eTAide</h1>
+        <p class="lead"> Sélectionnez un exercice, <strong> réservez votre TA ! </strong> </p>
+        <div class="d-flex flex-row">
+          <select style="max-width:80%;" class="form-select form-select-lg" aria-label=".form-select-lg example">
             <option selected>Choisissez une catégorie </option>
             <% Exercise::CATEGORIES.each do |category| %>
             <option value="#{category}"><%= category %></option>
             <% end %>
-          </select>
-          <%= link_to "Rechercher", exercises_path, class:"btn btn-success" %>
+            </select>
+            <%= link_to "Rechercher", exercises_path, class:"btn btn-primary btn-lg mx-3" %>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div class="container">
   <%# # Integrating iteration to show sample of exercises%>
   <div class="row mx-4 p-5">
     <h2>Derniers exercises</h2>
