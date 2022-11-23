@@ -2,13 +2,14 @@
   <div class="row bg-white m-4">
       <div class="jumbotron jumbotron-fluid p-5">
           <h1 class="display-4">🛟 eTAide</h1>
-          <p class="lead">Sélectionnez un exercise, réservez votre TA !</p>
+          <p class="lead"> Sélectionnez un exercice, <strong> réservez votre TA ! </strong> </p>
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option selected>Choisissez une catégorie </option>
+            <% Exercise::CATEGORIES.each do |category| %>
+            <option value="#{category}"><%= category %></option>
+            <% end %>
           </select>
+          <%= link_to "Rechercher", exercises_path, class:"btn btn-success" %>
       </div>
     </div>
   </div>
@@ -19,10 +20,10 @@
     <% @exercises.limit(9).each do |exercise| %>
       <div class="col-sm-4">
         <div class="shadow-sm card p-3 mb-2">
-          <h3> <%= exercise.name %></h3>
-          <p> <%= exercise.description %> <p>
-          <%= link_to "Réserver pour #{exercise.price_per_day.round(0)}€", exercise_path(exercise), class:"btn btn-primary" %>
-        <p>Teached by : <%= exercise.user.first_name %> <%= exercise.user.last_name %></p>
+          <h3 class="my-3"> <%= exercise.name %></h3>
+          <p> <strong> Catégorie: </strong>  <%= exercise.category %> <p>
+          <p> <strong> TA associé: </strong>  <%= exercise.user.first_name %> <%= exercise.user.last_name %></p>
+            <%= link_to "Réserver pour #{exercise.price_per_day.round(0)}€", exercise_path(exercise), class:"btn btn-primary" %>
         </div>
       </div>
     <% end %>
