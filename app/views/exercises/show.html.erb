@@ -4,7 +4,7 @@
     <h1 class="py-2"> <%= @exercise.name %> </h1>
       <div>
         <div class="d-inline bg-white text-dark m-2">Catégorie :  <%= @exercise.category %></div>
-        <div class="d-inline bg-white text-dark m-2">Prix : <%= @exercise.price_per_day %> €</div>
+        <div class="d-inline bg-white text-dark m-2">Prix : <%= @exercise.price_per_day.round(0) %> €</div>
       </div>
   </div>
 </div>

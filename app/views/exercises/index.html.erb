@@ -7,7 +7,7 @@
       <div class="shadow-sm card p-3 mb-2">
         <h3> <%= exercise.name %></h3>
         <p> <%= exercise.category %> <p>
-        <%= link_to "Réserver pour #{exercise.price_per_day}€", exercise_path(exercise), class:"btn btn-primary" %>
+        <%= link_to "Réserver pour #{exercise.price_per_day.round(0)}€", exercise_path(exercise), class:"btn btn-primary" %>
       </div>
     </div>
   <% end %>
