@@ -1,6 +1,5 @@
-<div class="container-fluid bg-white">
+<div class="container-fluid m-4">
   <%= link_to "⟨ Accueil", root_path, class:"text-decoration-none" %>
-
   <div class="row mt-2 mb-3">
     <h1 class="py-2"> <%= @exercise.name %> </h1>
       <div>
@@ -9,7 +8,8 @@
       </div>
   </div>
 </div>
-<div class="container m-3">
+<hr>
+<div class="container m-4">
   <div class="row">
     <div class="col-8 mt-4">
       <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum quidem possimus ad autem recusandae, nobis delectus rerum cupiditate adipisci rem eum dignissimos, vero nisi cumque soluta voluptates culpa aut minima!
@@ -17,7 +17,7 @@
       Odit animi libero dignissimos laudantium ad eaque similique dolorem in corrupti impedit non ullam, voluptatibus veniam inventore eius maiores ex! Pariatur voluptatum eligendi eos laborum laboriosam dicta libero, eaque nostrum. <%= @exercise.description %> </p>
 
     <h3>Votre TA sera :</h3>
-    <div class="card-product">
+    <div class="card-product mt-3">
       <img src="https://avatars.githubusercontent.com/u/54894352?v=4" />
       <div class="card-product-infos">
         <h2><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h2>
