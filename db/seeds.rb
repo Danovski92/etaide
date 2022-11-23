@@ -28,7 +28,7 @@ end
       name: Faker::Space.galaxy,
       description: Faker::BossaNova.song,
       price_per_day: rand(0..500),
-      category: "A",
+      category: Exercise::CATEGORIES.sample,
       response_time: rand(30..120),
       user_id: user.id
     )
@@ -45,6 +45,7 @@ end
         user_id: user.id - 1,                                 #### ne peut pas etre = à l'user_id de l'exercise
         exercise_id: exercise.id
       )
+      p booking
       booking.save!
     when 2
       booking = Booking.new(
@@ -53,6 +54,7 @@ end
         user_id: user.id - 2,                                 #### ne peut pas etre = à l'user_id de l'exercise
         exercise_id: exercise.id
       )
+      p booking
       booking.save!
     when 3
       booking = Booking.new(
@@ -61,6 +63,7 @@ end
         user_id: user.id - 3,                                 #### ne peut pas etre = à l'user_id de l'exercise
         exercise_id: exercise.id
       )
+      p booking
       booking.save!
     when 4
       booking = Booking.new(
@@ -69,6 +72,7 @@ end
         user_id: user.id - 4,                                 #### ne peut pas etre = à l'user_id de l'exercise
         exercise_id: exercise.id
       )
+      p booking
       booking.save!
       puts "....Adding ...#{x * 5}..Bookings to DB.............."
     end
