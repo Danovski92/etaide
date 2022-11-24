@@ -3,14 +3,28 @@
     <div class="jumbotron jumbotron-fluid p-5 bg-white col-6 rounded mx-auto d-block justify-content-center align-items-center">
       <h1 class="display-4"> 🛟 e-TAide </h1>
         <p class="lead"> Sélectionnez un exercice, <strong> réservez votre TA ! </strong> </p>
-        <div class="d-flex flex-row">
-          <select style="max-width:80%;" class="form-select form-select-lg" aria-label=".form-select-lg example">
-            <option selected>Choisissez une catégorie </option>
-            <% Exercise::CATEGORIES.each do |category| %>
-            <option value="#{category}"><%= category %></option>
-            <% end %>
-            </select>
-            <%= link_to "Rechercher", exercises_path, class:"btn btn-primary btn-lg mx-3" %>
+        <div>
+          <%= form_with url: exercises_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control form-control-lg",
+            placeholder: "Chercher un exercice par nom ou catégorie"
+          %>
+          <%= submit_tag "Rechercher", class: "btn btn-primary btn-lg" %>
+        <% end %>
+        <hr>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <p>A</p>
+            </div>
+            <div class="carousel-item">
+              <p>B</p>
+            </div>
+            <div class="carousel-item">
+              <p>C</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
