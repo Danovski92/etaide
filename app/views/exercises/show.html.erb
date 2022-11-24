@@ -1,41 +1,42 @@
-<div class="container-fluid m-4">
-  <%= link_to "⟨ Accueil", root_path, class:"text-decoration-none" %>
+<div class="p-5" style="background-size: cover; background-position: center; background-image:url('https://images.pexels.com/photos/3861951/pexels-photo-3861951.jpeg')">
+  <%= link_to "⟨ Accueil", root_path, class:"text-decoration-none text-light" %>
   <div class="row mt-2 mb-3">
-    <h1 class="py-2"> <%= @exercise.name %> </h1>
+    <h1 class="py-2 text-light"> <%= @exercise.name %> </h1>
       <div>
-        <div class="d-inline bg-white text-dark m-2">Catégorie :  <%= @exercise.category %></div>
-        <div class="d-inline bg-white text-dark m-2">Prix : <%= @exercise.price_per_day.round(0) %> €</div>
+        <a type="button" class="btn btn-light btn-sm"><i class="fa-regular fa-tag"></i> Catégorie : <%= @exercise.category %> </a>
+        <a type="button" class="btn btn-light btn-sm"><i class="fa-regular fa-money-bill-1-wave"></i> Prix : <%= @exercise.price_per_day.round(0) %> €</a>
+        <a href="#your_ta" type="button" class="btn btn-light btn-sm" src="#your_ta"><i class="fa-regular fa-chalkboard-user"></i> TA : <%= @exercise.user.first_name %> <%= @exercise.user.last_name %></a>
       </div>
   </div>
 </div>
-<hr>
-<div class="container m-4">
+<div class="container my-4">
   <div class="row">
     <div class="col-8 mt-4">
-      <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum quidem possimus ad autem recusandae, nobis delectus rerum cupiditate adipisci rem eum dignissimos, vero nisi cumque soluta voluptates culpa aut minima!
-      Qui earum sapiente dolorum sequi corporis vel eaque architecto! Error in harum magnam dignissimos, quaerat quos accusamus! Nihil beatae modi, repudiandae dicta dolore rem aspernatur eius sit nostrum, dignissimos sapiente!
-      Odit animi libero dignissimos laudantium ad eaque similique dolorem in corrupti impedit non ullam, voluptatibus veniam inventore eius maiores ex! Pariatur voluptatum eligendi eos laborum laboriosam dicta libero, eaque nostrum. <%= @exercise.description %> </p>
+    <h4>Description :</h4>
+      <%= @exercise.description %> </p>
 
-    <h3>Votre TA sera :</h3>
-    <div class="card-product mt-3">
-      <img src="https://avatars.githubusercontent.com/u/54894352?v=4" />
-      <div class="card-product-infos">
-        <h2><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h2>
-        <p>Temps de réponse moyen <strong><%= @exercise.response_time %></strong> min pour ce TA.</p>
+      <hr>
+      <div>
+      </div>
+    <div id="your_ta" class="card border-0 shadow-sm d-flex flex-row">
+      <img class="rounded-circle p-2 mx-2 align-middle" height="100" src="https://avatars.githubusercontent.com/u/54894352?v=4" alt="Card image cap">
+      <div class="card-body">
+        <h4><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h4>
+        <p class="card-product-infos">Son temps de réponse moyen <strong><%= @exercise.response_time %></strong> min.</p>
       </div>
     </div>
 
     </div>
     <div class="col-4">
-      <div class="container py-5">
+      <div class="container my-4">
         <div class="row">
           <div class="col-12">
-            <div class="bg-white rounded p-3 shadow">
-              <h3>Book <%= @exercise.user.first_name %> for you exercise</h3>
+            <div class="card rounded p-3 shadow-sm border-0 d-inline-flex">
+              <h5 class="font-weight-bold">Réserve cet exercice avec <%= @exercise.user.first_name %></h5>
               <%= simple_form_for [@exercise, @booking] do |f| %>
-                <%= f.input :start_date, placeholder: 'Enter a start date' %>
-                <%= f.input :end_date, placeholder: 'Enter a start date' %>
-                <%= f.submit "validate", class: "btn btn-primary" %>
+                <%= f.input :start_date, placeholder: 'Date de début' %>
+                <%= f.input :end_date, placeholder: 'Date de fin' %>
+                <%= f.submit "Réserver pour #{@exercise.price_per_day.round(0)}€", class: "btn btn-primary btn-lg btn-block" %>
               <% end %>
             </div>
           </div>
