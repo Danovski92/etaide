@@ -1,3 +1,4 @@
+<div class="container">
 <%# # Integrating iteration to show exercises for this user%>
   <div class="row mx-3 px-4 py-2">
     <h1 class="my-2 text-center"><strong>
@@ -17,17 +18,7 @@
       <% if @bookings == [] %>
         <%= "Tu n'as fait aucune réservation pour l'instant" %>
       <% else %>
-        <% @bookings.each do |booking| %>
-          <div class="col-sm-4">
-            <div class="card shadow-sm p-3 mb-2">
-              <h5 class="card-title"><%= booking.exercise.name %></h5>
-              <p class="card-text"><strong>Ton TA adoré est :</strong> <%= booking.exercise.user.first_name %> (id: <%= booking.exercise.user.id %>)</p>
-              <p class="card-text"><strong>Date de début :</strong> <%= booking.start_date %> </p>
-              <p class="card-text"><strong>Date de fin :</strong> <%= booking.end_date %> </p>
-              <p class="card-text d-none"><strong>Ton id :</strong> <%= booking.user_id %> </p>
-            </div>
-          </div>
-        <% end %>
+        <%= render "shared/bookings-card" %>
       <% end %>
   </div>
   <%# Horizontal line to split the window %>
@@ -38,16 +29,7 @@
       <% if @exercises == [] %>
         <%= "Tu n'as créé aucun exercice pour l'instant" %>
       <% else %>
-        <% @exercises.each do |exercise| %>
-          <div class="col-sm-4" >
-            <div class="shadow-sm card p-3 mb-2 text-decoration-none">
-              <h2> <%= exercise.name %></h2>
-              <p> <%= exercise.description %> <p>
-              <p> <%= exercise.user_id %> <p>
-              <p> <strong> <%=  exercise.price_per_day.round(0) %> €</strong> </p>
-          <%= link_to "Voir les détails", exercise, class:"btn btn-primary text-decoration-none" %>
-            </div>
-          </div>
-        <% end %>
+        <%= render "shared/exercise-dash" %>
       <% end %>
   </div>
+</div>
