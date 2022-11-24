@@ -16,15 +16,14 @@
       <%= @exercise.description %> </p>
 
       <hr>
-      <div>
-      </div>
+
     <div id="your_ta" class="card border-0 shadow-sm d-flex flex-row">
       <img class="rounded-circle p-2 mx-2 align-middle" height="100" src="https://avatars.githubusercontent.com/u/54894352?v=4" alt="Card image cap">
       <div class="card-body">
         <h4><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h4>
         <p class="card-product-infos">Son temps de réponse moyen <strong><%= @exercise.response_time %></strong> min.</p>
       </div>
-
+    </div>
     </div>
     <div class="col-4">
       <div class="container my-4">
