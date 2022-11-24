@@ -39,7 +39,17 @@
       <div class="col-sm-4">
         <div class="shadow-sm card p-3 mb-2">
           <h3 class="my-3"> <%= exercise.name %></h3>
-          <p> <strong> Catégorie: </strong>  <%= exercise.category %> <p>
+          <% if exercise.category == "Front-end" %>
+            <p class='tag tag-teal text-center'> <%= exercise.category %> <p>
+          <% elsif exercise.category == "Back-end" %>
+            <p class='tag tag-pink text-center'> <%= exercise.category %> <p>
+          <% elsif exercise.category == "Back-end" %>
+            <p class='tag tag-yellow text-center'> <%= exercise.category %> <p>
+          <% elsif exercise.category == "Back-end" %>
+            <p class='tag tag-green text-center'> <%= exercise.category %> <p>
+          <% else %>
+            <p class='tag tag-purple text-center'> <%= exercise.category %> <p>
+          <% end %>
           <p> <strong> TA associé: </strong>  <%= exercise.user.first_name %> <%= exercise.user.last_name %></p>
             <%= link_to "Réserver pour #{exercise.price_per_day.round(0)}€", exercise_path(exercise), class:"btn btn-primary" %>
         </div>
