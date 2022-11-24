@@ -1,7 +1,7 @@
 <div class="img-fluid py-5" style="height:500px; background-size: cover; background-image:url('https://images.pexels.com/photos/3861951/pexels-photo-3861951.jpeg')">
   <div class="row">
     <div class="jumbotron jumbotron-fluid p-5 bg-white col-6 rounded mx-auto d-block justify-content-center align-items-center">
-      <h1 class="display-4">🛟 eTAide</h1>
+      <h1 class="display-4"> 🛟 e-TAide </h1>
         <p class="lead"> Sélectionnez un exercice, <strong> réservez votre TA ! </strong> </p>
         <div>
           <%= form_with url: exercises_path, method: :get, class: "d-flex" do %>
@@ -33,7 +33,7 @@
 <div class="container">
   <%# # Integrating iteration to show sample of exercises%>
   <div class="row mx-4 p-5">
-    <h2>Derniers exercises</h2>
+    <h2>Derniers exercices</h2>
     <%= link_to "Voir tous les exercises ⟩", exercises_path, class:"my-2 text-decoration-none" %>
     <% @exercises.limit(9).each do |exercise| %>
       <div class="col-sm-4">

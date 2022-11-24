@@ -39,15 +39,14 @@
         <%= "Tu n'as créé aucun exercice pour l'instant" %>
       <% else %>
         <% @exercises.each do |exercise| %>
-          <div class="col-sm-4">
-          <%= link_to exercise  do %>
-            <div class="shadow-sm card p-3 mb-2">
+          <div class="col-sm-4" >
+            <div class="shadow-sm card p-3 mb-2 text-decoration-none">
               <h2> <%= exercise.name %></h2>
               <p> <%= exercise.description %> <p>
               <p> <%= exercise.user_id %> <p>
-              <p> <strong> <%=  exercise.price_per_day.rounded(0) %> €</strong> </p>
+              <p> <strong> <%=  exercise.price_per_day.round(0) %> €</strong> </p>
+          <%= link_to "Voir les détails", exercise, class:"btn btn-primary text-decoration-none" %>
             </div>
-            <% end %>
           </div>
         <% end %>
       <% end %>
