@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.exercise = @exercise
     if @booking.save
-      redirect_to dashboard_path(@user)
+      redirect_to dashboard_path(@user), notice: "Votre cours a bien été réservé"
     else
       render :new, status: :unprocessable_entity
     end
