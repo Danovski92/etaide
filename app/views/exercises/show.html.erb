@@ -1,42 +1,44 @@
-<div class="container-fluid m-4">
-  <%= link_to "⟨ Accueil", root_path, class:"text-decoration-none" %>
-  <div class="row mt-2 mb-3">
-    <h1 class="py-2"> <%= @exercise.name %> </h1>
-      <div>
-        <div class="d-inline bg-white text-dark m-2">Catégorie :  <%= @exercise.category %></div>
-        <div class="d-inline bg-white text-dark m-2">Prix : <%= @exercise.price_per_day.round(0) %> €</div>
-      </div>
+<div class="container">
+  <div class="container-fluid m-4">
+    <%= link_to "⟨ Accueil", root_path, class:"text-decoration-none" %>
+    <div class="row mt-2 mb-3">
+      <h1 class="py-2"> <%= @exercise.name %> </h1>
+        <div>
+          <div class="d-inline bg-white text-dark m-2">Catégorie :  <%= @exercise.category %></div>
+          <div class="d-inline bg-white text-dark m-2">Prix : <%= @exercise.price_per_day.round(0) %> €</div>
+        </div>
+    </div>
   </div>
-</div>
-<hr>
-<div class="container m-4">
-  <div class="row">
-    <div class="col-8 mt-4">
-      <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum quidem possimus ad autem recusandae, nobis delectus rerum cupiditate adipisci rem eum dignissimos, vero nisi cumque soluta voluptates culpa aut minima!
-      Qui earum sapiente dolorum sequi corporis vel eaque architecto! Error in harum magnam dignissimos, quaerat quos accusamus! Nihil beatae modi, repudiandae dicta dolore rem aspernatur eius sit nostrum, dignissimos sapiente!
-      Odit animi libero dignissimos laudantium ad eaque similique dolorem in corrupti impedit non ullam, voluptatibus veniam inventore eius maiores ex! Pariatur voluptatum eligendi eos laborum laboriosam dicta libero, eaque nostrum. <%= @exercise.description %> </p>
+  <hr>
+  <div class="container m-4">
+    <div class="row">
+      <div class="col-8 mt-4">
+        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum quidem possimus ad autem recusandae, nobis delectus rerum cupiditate adipisci rem eum dignissimos, vero nisi cumque soluta voluptates culpa aut minima!
+        Qui earum sapiente dolorum sequi corporis vel eaque architecto! Error in harum magnam dignissimos, quaerat quos accusamus! Nihil beatae modi, repudiandae dicta dolore rem aspernatur eius sit nostrum, dignissimos sapiente!
+        Odit animi libero dignissimos laudantium ad eaque similique dolorem in corrupti impedit non ullam, voluptatibus veniam inventore eius maiores ex! Pariatur voluptatum eligendi eos laborum laboriosam dicta libero, eaque nostrum. <%= @exercise.description %> </p>
 
-    <h3>Votre TA sera :</h3>
-    <div class="card-product mt-3">
-      <img src="https://avatars.githubusercontent.com/u/54894352?v=4" />
-      <div class="card-product-infos">
-        <h2><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h2>
-        <p>Temps de réponse moyen <strong><%= @exercise.response_time %></strong> min pour ce TA.</p>
+      <h3>Votre TA sera :</h3>
+      <div class="card-product mt-3">
+        <img src="https://avatars.githubusercontent.com/u/54894352?v=4" />
+        <div class="card-product-infos">
+          <h2><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h2>
+          <p>Temps de réponse moyen <strong><%= @exercise.response_time %></strong> min pour ce TA.</p>
+        </div>
       </div>
-    </div>
 
-    </div>
-    <div class="col-4">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-12">
-            <div class="bg-white rounded p-3 shadow">
-              <h3>Book <%= @exercise.user.first_name %> for you exercise</h3>
-              <%= simple_form_for [@exercise, @booking] do |f| %>
-                <%= f.input :start_date, placeholder: 'Enter a start date' %>
-                <%= f.input :end_date, placeholder: 'Enter a start date' %>
-                <%= f.submit "validate", class: "btn btn-primary" %>
-              <% end %>
+      </div>
+      <div class="col-4">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-12">
+              <div class="bg-white rounded p-3 shadow">
+                <h3>Book <%= @exercise.user.first_name %> for you exercise</h3>
+                <%= simple_form_for [@exercise, @booking] do |f| %>
+                  <%= f.input :start_date, placeholder: 'Enter a start date' %>
+                  <%= f.input :end_date, placeholder: 'Enter a start date' %>
+                  <%= f.submit "validate", class: "btn btn-primary" %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
