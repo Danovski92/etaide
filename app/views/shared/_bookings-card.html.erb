@@ -1,0 +1,30 @@
+<% @bookings.each do |booking| %>
+  <div class="col-sm-4">
+    <div class="exercise-card col-sm-4" >
+      <div class="exercise-card-header">
+        <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+      </div>
+      <div class="exercise-card-body">
+        <% if booking.exercise.category == "Front-end" %>
+          <span class="tag tag-teal"><%=booking.exercise.category%></span>
+        <% elsif booking.exercise.category == "Back-end" %>
+           <span class="tag tag-pink"><%=booking.exercise.category%></span>
+        <% elsif booking.exercise.category == "Transverse" %>
+           <span class="tag tag-yellow"><%=booking.exercise.category%></span>
+        <% elsif booking.exercise.category == "Base de données" %>
+           <span class="tag tag-green"><%=booking.exercise.category%></span>
+        <% else %>
+           <span class="tag tag-purple"><%=booking.exercise.category%></span>
+        <% end %>
+        <h4>
+        <%= booking.exercise.name %>
+        </h4>
+          <div class="user-info">
+            <h5>Avec <%= booking.exercise.user.first_name %> </h5>
+            <p>Le <%= booking.start_date %> <p>
+            <small></small>
+          </div>
+      </div>
+    </div>
+  </div>
+<% end %>
