@@ -5,4 +5,12 @@ class Exercise < ApplicationRecord
   validates :name, :description, :response_time, :price_per_day, :category, presence: true
   validates :price_per_day, :response_time, numericality: true
   validates :category, inclusion: { in: CATEGORIES }
+
+  # search exercises by name and category
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_category,
+  against: [ :name, :category ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
