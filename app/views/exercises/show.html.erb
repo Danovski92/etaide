@@ -3,9 +3,19 @@
   <div class="row mt-2 mb-3">
     <h1 class="py-2 text-light"> <%= @exercise.name %> </h1>
       <div>
-        <a type="button" class="btn btn-light btn-sm"><i class="fa-regular fa-tag"></i> Catégorie : <%= @exercise.category %> </a>
-        <a type="button" class="btn btn-light btn-sm"><i class="fa-regular fa-money-bill-1-wave"></i> : <%= @exercise.price_per_day.round(0) %> €</a>
-        <a href="#your_ta" type="button" class="btn btn-light btn-sm" src="#your_ta"><i class="fa-regular fa-chalkboard-user"></i> : <%= @exercise.user.first_name %> <%= @exercise.user.last_name %></a>
+        <% if @exercise.category == "Front-end" %>
+          <span class="tag tag-teal"><%= @exercise.category%></span>
+        <% elsif @exercise.category == "Back-end" %>
+           <span class="tag tag-pink"><%= @exercise.category%></span>
+        <% elsif @exercise.category == "Transverse" %>
+           <span class="tag tag-yellow"><%= @exercise.category%></span>
+        <% elsif @exercise.category == "Base de données" %>
+           <span class="tag tag-green"><%= @exercise.category%></span>
+        <% else %>
+           <span class="tag tag-purple"><%= @exercise.category%></span>
+        <% end %>
+        <span class="tag tag-purple"><%= @exercise.price_per_day.round(0)%> € / jour</span>
+        <span class="tag tag-pink"> TA associé: <%= @exercise.user.first_name %> <%= @exercise.user.last_name %></span>
       </div>
   </div>
 </div>
@@ -34,7 +44,7 @@
               <%= simple_form_for [@exercise, @booking] do |f| %>
                 <%= f.input :start_date, label: 'Date de début', placeholder: 'Date de début' %>
                 <%= f.input :end_date, label: 'Date de fin', placeholder: 'Date de fin' %>
-                <%= f.submit "Réserver pour #{@exercise.price_per_day.round(0)}€", class: "btn btn-primary btn-lg btn-block", style: "border-radius: 150px;" %>
+                <%= f.submit "Réserver pour #{@exercise.price_per_day.round(0)}€", class: "btn btn-primary btn-lg btn-block", style: "border-radius: 150px; border: 1px solid black; background-color: black;" %>
               <% end %>
             </div>
           </div>

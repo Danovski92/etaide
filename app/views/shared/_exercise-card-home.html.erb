@@ -1,0 +1,34 @@
+<% @exercises.limit(9).each do |exercise| %>
+  <div class="col-sm-4">
+  <%= link_to exercise_path(exercise), class:"card-link" do %>
+    <div class="exercise-card col-sm-4" >
+      <div class="exercise-card-header">
+        <img src=<%= exercise.image%> alt="rover" />
+      </div>
+      <div class="exercise-card-body">
+        <% if exercise.category == "Front-end" %>
+          <span class="tag tag-teal"><%=exercise.category%></span>
+        <% elsif exercise.category == "Back-end" %>
+           <span class="tag tag-pink"><%=exercise.category%></span>
+        <% elsif exercise.category == "Transverse" %>
+           <span class="tag tag-yellow"><%=exercise.category%></span>
+        <% elsif exercise.category == "Base de données" %>
+           <span class="tag tag-green"><%=exercise.category%></span>
+        <% else %>
+           <span class="tag tag-purple"><%=exercise.category%></span>
+        <% end %>
+        <h4>
+        <%= exercise.name %>
+        </h4>
+        <div class="user">
+          <img src= <%= exercise.user.image%> alt="user" />
+          <div class="user-info">
+            <h5>A partir de : <%=exercise.price_per_day.round(0) %> €/jour</h5>
+            <small><%=exercise.user.first_name%></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+<% end %>
