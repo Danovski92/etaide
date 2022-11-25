@@ -44,7 +44,7 @@
               <%= simple_form_for [@exercise, @booking] do |f| %>
                 <%= f.input :start_date, label: 'Date de début', placeholder: 'Date de début' %>
                 <%= f.input :end_date, label: 'Date de fin', placeholder: 'Date de fin' %>
-                <%= f.submit "Réserver pour #{@exercise.price_per_day.round(0)}€", class: "btn btn-primary btn-lg btn-block", style: "border-radius: 150px; border: 1px solid black; background-color: black;" %>
+                <%= f.submit "Réserver pour #{@exercise.price_per_day.round(0)}€ / jour", class: "btn btn-primary btn-lg btn-block", style: "border-radius: 150px; border: 1px solid black; background-color: black;" %>
               <% end %>
             </div>
           </div>
