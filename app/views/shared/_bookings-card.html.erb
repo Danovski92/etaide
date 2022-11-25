@@ -3,7 +3,7 @@
   <%= link_to exercise_path(booking), class:"card-link" do %>
     <div class="exercise-card col-sm-4" >
       <div class="exercise-card-header">
-        <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+        <img src= <%= booking.exercise.image%> alt="rover" />
       </div>
       <div class="exercise-card-body">
         <% if booking.exercise.category == "Front-end" %>

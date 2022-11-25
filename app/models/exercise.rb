@@ -9,8 +9,8 @@ class Exercise < ApplicationRecord
   # search exercises by name and category
   include PgSearch::Model
   pg_search_scope :search_by_name_and_category,
-  against: [ :name, :category ],
-  using: {
-    tsearch: { prefix: true }
-  }
+                  against: %i[name category],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

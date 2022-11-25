@@ -4,8 +4,8 @@
     <h1 class="py-2 text-light"> <%= @exercise.name %> </h1>
       <div>
         <a type="button" class="btn btn-light btn-sm"><i class="fa-regular fa-tag"></i> Catégorie : <%= @exercise.category %> </a>
-        <a type="button" class="btn btn-light btn-sm"><i class="fa-regular fa-money-bill-1-wave"></i> Prix : <%= @exercise.price_per_day.round(0) %> €</a>
-        <a href="#your_ta" type="button" class="btn btn-light btn-sm" src="#your_ta"><i class="fa-regular fa-chalkboard-user"></i> TA : <%= @exercise.user.first_name %> <%= @exercise.user.last_name %></a>
+        <a type="button" class="btn btn-light btn-sm"><i class="fa-regular fa-money-bill-1-wave"></i> : <%= @exercise.price_per_day.round(0) %> €</a>
+        <a href="#your_ta" type="button" class="btn btn-light btn-sm" src="#your_ta"><i class="fa-regular fa-chalkboard-user"></i> : <%= @exercise.user.first_name %> <%= @exercise.user.last_name %></a>
       </div>
   </div>
 </div>
@@ -18,7 +18,7 @@
       <hr>
 
     <div id="your_ta" class="card border-0 shadow-sm d-flex flex-row">
-      <img class="rounded-circle p-2 mx-2 align-middle" height="100" src="https://avatars.githubusercontent.com/u/54894352?v=4" alt="Card image cap">
+      <img class="rounded-circle p-2 mx-2 align-middle" height="100" src=<%= @user.image%> alt="Card image cap">
       <div class="card-body">
         <h4><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h4>
         <p class="card-product-infos">Son temps de réponse moyen <strong><%= @exercise.response_time %></strong> min.</p>
