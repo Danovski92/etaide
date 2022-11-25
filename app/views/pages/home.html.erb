@@ -1,6 +1,6 @@
 <div class="img-fluid py-5" style="height:500px; background-size: cover; background-image:url('https://images.pexels.com/photos/3861951/pexels-photo-3861951.jpeg')">
   <div class="row">
-    <div class="jumbotron jumbotron-fluid p-5 bg-white col-6 rounded mx-auto d-block justify-content-center align-items-center">
+    <div class="jumbotron jumbotron-fluid p-5 bg-white col-6 rounded-4 mx-auto d-block justify-content-center align-items-center">
       <h1 class="display-4 text-center"> <img src="https://res.cloudinary.com/vroomvroom/image/upload/v1669373522/etaide-removebg-preview_khowkg.png" width=60% alt="Logo Etaide"> </h1>
         <p class="lead text-center" style="font-family: Inconsolata;">Sélectionnez un exercice, réservez votre TA !</p>
         <div>
@@ -11,7 +11,7 @@
             style: "margin-right: 20px; font-family: Inconsolata;",
             placeholder: "Chercher un exercice par nom ou catégorie"
           %>
-          <%= submit_tag "Rechercher", class: "tag tag-purple" %>
+          <%= submit_tag "Rechercher", class: "tag tag-purple", style:"border: 1px solid black; background-color: black;" %>
         <% end %>
       </div>
     </div>
@@ -21,7 +21,7 @@
   <div class="row mx-4 p-5">
     <h2>Derniers exercices</h2>
     <%= link_to "Voir tous les exercises ⟩", exercises_path, class:"my-2 text-decoration-none" %>
-    <%= render "shared/exercise-card" %>
+    <%= render "shared/exercise-card-home" %>
   </div>
 
 </div>
