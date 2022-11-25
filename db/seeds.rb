@@ -98,6 +98,7 @@ x = 0
 
   5.times do
     ex = rand(0..21)
+    pp = rand(0..42)
     exercise = Exercise.new(
       name: exercises[ex][0],
       description: exercises[ex][1],
@@ -148,5 +149,4 @@ x = 0
       puts "....Adding ...#{x * 5}..Bookings to DB.............."
     end
   end
-pp = rand(0..42)
 end

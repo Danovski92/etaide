@@ -20,10 +20,13 @@
         <h4>
         <%= booking.exercise.name %>
         </h4>
-          <div class="user-info">
-            <h5>Avec <%= booking.exercise.user.first_name %> </h5>
-            <p>Le <%= booking.start_date %> <p>
-            <small></small>
+          <div class="user">
+            <img src=<%= booking.exercise.user.image%> alt="user" />
+            <div class="user-info">
+              <h5>Avec <%= booking.exercise.user.first_name %> </h5>
+              <p>Le <%= booking.start_date %> <p>
+              <small></small>
+            </div>
           </div>
       </div>
     </div>
