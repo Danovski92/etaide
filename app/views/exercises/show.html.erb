@@ -11,13 +11,13 @@
 </div>
 <div class="container my-4">
   <div class="row">
-    <div class="col-8 mt-4">
+    <div class="col-7 mt-4">
     <h4>Description :</h4>
       <%= @exercise.description %> </p>
 
       <hr>
 
-    <div id="your_ta" class="card border-0 shadow-sm d-flex flex-row">
+    <div id="your_ta" class="card border-1 rounded-4 shadow-sm d-flex flex-row">
       <img class="rounded-circle p-2 mx-2 align-middle" height="100" src=<%= @user.image%> alt="Card image cap">
       <div class="card-body">
         <h4><%= @exercise.user.first_name %> <%= @exercise.user.last_name %></h4>
@@ -25,16 +25,16 @@
       </div>
     </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
       <div class="container my-4">
         <div class="row">
           <div class="col-12">
-            <div class="card rounded p-3 shadow-sm border-0 d-inline-flex">
+            <div class="card rounded p-3 shadow-sm border-0 rounded-4">
               <h5 class="font-weight-bold">Réserve cet exercice avec <%= @exercise.user.first_name %></h5>
               <%= simple_form_for [@exercise, @booking] do |f| %>
-                <%= f.input :start_date, placeholder: 'Date de début' %>
-                <%= f.input :end_date, placeholder: 'Date de fin' %>
-                <%= f.submit "Réserver pour #{@exercise.price_per_day.round(0)}€", class: "btn btn-primary btn-lg btn-block" %>
+                <%= f.input :start_date, label: 'Date de début', placeholder: 'Date de début' %>
+                <%= f.input :end_date, label: 'Date de fin', placeholder: 'Date de fin' %>
+                <%= f.submit "Réserver pour #{@exercise.price_per_day.round(0)}€", class: "btn btn-primary btn-lg btn-block", style: "border-radius: 150px;" %>
               <% end %>
             </div>
           </div>
